@@ -1,0 +1,33 @@
+{% extends 'edu/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<p><a class="button" href="{% url create_url %}">Novo {{ object_label }}</a></p>
+<table>
+    <thead>
+        <tr>
+            {% for header in headers %}
+                <th>{{ header }}</th>
+            {% endfor %}
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in rows %}
+        <tr>
+            {% for value in row.fields %}
+                <td>{{ value }}</td>
+            {% endfor %}
+            <td class="actions">
+                <a href="{% url row.edit_url row.id %}">Editar</a>
+                <a class="button button-danger" href="{% url row.delete_url row.id %}">Excluir</a>
+            </td>
+        </tr>
+    {% empty %}
+        <tr><td colspan="{{ headers|length|add:1 }}">Nenhum registro encontrado.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

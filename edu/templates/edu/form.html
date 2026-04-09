@@ -1,0 +1,15 @@
+{% extends 'edu/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button" type="submit">Salvar</button>
+        <a class="button button-secondary" href="javascript:history.back()">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

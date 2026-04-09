@@ -1,0 +1,14 @@
+{% extends 'edu/base.html' %}
+
+{% block title %}Edu - CRUD com ModelForm{% endblock %}
+
+{% block content %}
+<h1>Edu - CRUD com ModelForm</h1>
+<p>Use o menu acima para gerenciar autores, editoras, livros e publicações.</p>
+<ul>
+    <li><a href="{% url 'edu:autor_list' %}">Lista de Autores</a></li>
+    <li><a href="{% url 'edu:editora_list' %}">Lista de Editoras</a></li>
+    <li><a href="{% url 'edu:livro_list' %}">Lista de Livros</a></li>
+    <li><a href="{% url 'edu:publica_list' %}">Lista de Publicações</a></li>
+</ul>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'edu/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<p>Tem certeza que deseja excluir <strong>{{ object }}</strong>?</p>
+<form method="post">
+    {% csrf_token %}
+    <button class="button button-danger" type="submit">Sim, excluir</button>
+    <a class="button button-secondary" href="{% url cancel_url %}">Cancelar</a>
+</form>
+{% endblock %}
